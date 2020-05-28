@@ -38,12 +38,32 @@ public class ReflectionApiDemo {
         /* Получим список отражений всех полей типа SecureClass */
         Field[] scFields =
             scReflection.getDeclaredFields();
+
+
+
         for (Field scField : scFields) {
             scField.setAccessible(true);
-            System.out.printf("old %s = %s\n", scField.getName(), scField.get(sc));
-            scField.set(sc, 200);
-            System.out.printf("new %s = %s\n", scField.getName(), scField.get(sc));
+            if (scField.get(sc) instanceof String) {
+                scField.set(sc, (scField.get(sc) + "Мир!"));
+                System.out.printf("new %s = %s\n", scField.getName(), scField.get(sc));
         }
+
+
+//        for (Field scField : scFields) {
+//            scField.setAccessible(true);
+//            //System.out.printf("old %s = %s\n", scField.getName(), scField.get(sc));
+//            if (scField.get(sc) instanceof String) {
+//                scField.set(sc, (scField.get(sc) + "Мир!"));
+//                System.out.printf("new %s = %s\n", scField.getName(), scField.get(sc));
+//            }
+//
+//            //System.out.printf("new %s = %s\n", scField.getName(), scField.get(sc));
+//        }
     }
+
+
+
+
+
     
 }

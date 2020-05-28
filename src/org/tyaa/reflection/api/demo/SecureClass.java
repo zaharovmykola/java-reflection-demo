@@ -11,4 +11,5 @@ package org.tyaa.reflection.api.demo;
  */
 public class SecureClass {
     private Integer id = 100;
+    private String smth = "Привет, ";
 }
